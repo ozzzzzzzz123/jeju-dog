@@ -114,6 +114,5 @@
     document.getElementById('back-btn').href = `index.html?dogName=${encodeURIComponent(dogName)}&dogAge=${encodeURIComponent(dogAge)}`;
     document.getElementById('page-title').innerText = `${dogAge}살 ${dogName}과 함께 먹을 수 있는 식당`;
 
-<iframe src="media/bgm.html" style="display:none;"></iframe>
 </body>
 </html>
