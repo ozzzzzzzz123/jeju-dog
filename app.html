@@ -2,31 +2,48 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jeju-Dog</title>
   <style>
-    body,html{margin:0;height:100%}
-    nav{background:#FE9F60;padding:10px}
-    nav a{margin-right:12px;color:#5D3A00;text-decoration:none;font-weight:700}
-    iframe#content{border:0;width:100%;height:calc(100% - 50px);}
+    :root{--bg:#FFD580;--brown:#5D3A00;--accent:#FE9F60}
+    *{box-sizing:border-box}
+    body,html{margin:0;height:100%;background:var(--bg);color:var(--brown);font-family:Arial,sans-serif}
+    nav{background:var(--accent);padding:12px;text-align:center}
+    nav a{color:var(--brown);font-weight:700;margin:0 10px;text-decoration:none}
+    nav a:hover{opacity:.8}
+    #content{border:0;width:100%;height:calc(100% - 48px);}
   </style>
 </head>
 <body>
-  <!-- 네비게이션 -->
+
+  <!-- ▸ 네비게이션: 모든 링크가 target="content" -->
   <nav>
-    <a href="pages/home.html"   target="content">Home</a>
-    <a href="pages/lodging.html"target="content">숙소</a>
+    <a href="pages/home.html"       target="content">HOME</a>
+    <a href="pages/lodging.html"    target="content">숙소</a>
+    <a href="pages/restaurants.html"target="content">식당</a>
     <!-- 필요하면 더 추가 -->
   </nav>
 
-  <!-- 실제 화면이 바뀌는 영역 -->
+  <!-- ▸ 실제 화면이 바뀌는 곳 -->
   <iframe id="content" name="content" src="pages/home.html"></iframe>
 
-  <!-- 0×0 YouTube 플레이어: 소리만 -->
-  <iframe
-    src="media/bgm.html"
-    style="width:0;height:0;border:0;"
-    title="BGM"
-    loading="lazy">
-  </iframe>
+  <!-- ▸ 0×0 배경음 iframe (음악은 쉘에 붙어 있으니 절대 안 끊김) -->
+  <iframe src="media/bgm.html"
+          allow="autoplay"
+          style="width:0;height:0;border:0;display:none"
+          title="BGM"></iframe>
+
+  <!-- ▸ 첫 사용자 클릭에서 음소거 해제 -->
+  <script>
+  window.addEventListener('click',unmute,{once:true});
+  window.addEventListener('touchstart',unmute,{once:true});
+  function unmute(){
+    const bgm = document.querySelector('iframe[title="BGM"]');
+    if(bgm&&bgm.contentWindow){
+      bgm.contentWindow.postMessage(
+        '{"event":"command","func":"unMute","args":""}', '*');
+    }
+  }
+  </script>
 </body>
 </html>
