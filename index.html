@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeju-Dog 제주도그</title>
+  <!-- 공통 배경음악 스크립트 -->
+  <script src="common.js" defer></script>
+  <style>
+    body { background-color: #FFD580; color: #5D3A00; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #FE9F60; color: #5D3A00; text-align: center; padding: 40px 20px; }
+    header h1 { font-size: 3rem; margin: 0; }
+    header h2 { font-size: 1.5rem; margin: 10px 0 0; animation: blink 1s linear infinite; }
+    @keyframes blink { 0%,50%,100% { opacity: 1; } 25%,75% { opacity: 0; } }
+    .landing-img { display: block; width: 50%; max-width: 450px; margin: 20px auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .form-container { max-width: 400px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .form-container label { display: block; margin-bottom: 8px; font-weight: bold; }
+    .form-container input,
+    .form-container select {
+      width: 100%; padding: 8px; margin-bottom: 16px;
+      border: 2px solid #5D3A00; border-radius: 4px;
+      font-size: 1rem; color: #5D3A00; box-sizing: border-box;
+    }
+    .form-container button {
+      width: 100%; padding: 10px;
+      background-color: #5D3A00; color: #FFD580;
+      border: none; border-radius: 4px;
+      font-size: 1rem; cursor: pointer;
+    }
+    .form-container button:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jeju-Dog 제주도그</h1>
+    <h2>댕댕이와 떠나는 제주여행</h2>
+  </header>
+
+  <img
+    src="/images/landing.png"
+    alt="댕댕이"
+    class="landing-img"
+  />
+
+  <div class="form-container">
+    <form id="intro-form">
+      <label for="dogName">1. 반려견 이름</label>
+      <input type="text" id="dogName" name="dogName" placeholder="이름을 입력하세요" required />
+
+      <label for="dogAge">2. 반려견 나이</label>
+      <input type="number" id="dogAge" name="dogAge" min="0" placeholder="나이를 입력하세요" required />
+
+      <label for="infoSelect">3. 원하는 정보 선택</label>
+      <select id="infoSelect" name="infoSelect" required>
+        <option value="">--- 선택하세요 ---</option>
+        <option value="2.lodging.html">반려견 동반 숙소</option>
+        <option value="3.restaurants.html">반려견 동반 식당</option>
+        <option value="4.cafes.html">반려견 동반 카페</option>
+        <option value="5.spots.html">제주 관광 정보</option>
+      </select>
+
+      <button type="button" onclick="goNext()">다음</button>
+    </form>
+  </div>
+
+  <script>
+    function goNext() {
+      const name = encodeURIComponent(document.getElementById("dogName").value.trim());
+      const age  = encodeURIComponent(document.getElementById("dogAge").value);
+      const page = document.getElementById("infoSelect").value;
+      if (!name || !age || !page) return;
+      window.location.href = `${page}?dogName=${name}&dogAge=${age}`;
+    }
+  </script>
+</body>
+</html>
