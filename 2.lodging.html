@@ -1,0 +1,98 @@
+<!-- 2. lodging.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>숙소 리스트</title>
+  <style>
+    body { background-color: #FFD580; color: #5D3A00; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #FE9F60; color: #5D3A00; text-align: center; padding: 30px 20px; position: relative; }
+    header h1 { font-size: 2rem; margin: 0; }
+    header h2 { font-size: 1rem; margin: 10px 0 0; font-weight: normal; }
+    /* 처음으로 버튼 (왼쪽) */
+    #back-btn {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      padding: 6px 12px;
+      background: #5D3A00;
+      color: #FFD580;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      animation: blink 2s linear infinite;
+    }
+    #back-btn:hover { opacity: 0.8; }
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+    #back-btn:hover { opacity: 0.8; }
+    section { max-width: 800px; margin: 20px auto; padding: 0 20px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    table th, table td { border: 1px solid #5D3A00; padding: 8px; text-align: left; }
+    table th { background-color: #FE9F60; }
+    /* tbody 행 배경: 흰색 50% 투명도 */
+    tbody tr { background-color: rgba(255,255,255,0.5); }
+    .map-container { max-width: 800px; margin: 0 auto 40px; padding: 0 20px; }
+    .map-container h3 { margin: 20px 0 8px; }
+    .map-container iframe { width: 100%; height: 300px; border: 0; border-radius: 4px; }
+    footer { text-align: center; padding: 10px; background: #FE9F60; color: #5D3A00; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="page-title">숙소 리스트</h1>
+    <h2>아래 표에서 숙소를 확인하거나 지도를 참고하세요</h2>
+    <a id="back-btn" href="#">← 이전으로</a>
+  </header>
+
+  <section>
+    <table>
+      <thead>
+        <tr><th>숙소명</th><th>주소</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>하이 제주 호텔</td><td>제주특별자치도 제주시 한림읍 일주서로 5125</td></tr>
+        <tr><td>판포 도도하우스</td><td>제주특별자치도 제주시 한경면 판포중길 13-10</td></tr>
+        <tr><td>웨스티 하우스 펜션</td><td>제주특별자치도 서귀포시 안덕면 일주서로1488번길 9</td></tr>
+        <tr><td>제주 블루앤씨</td><td>제주특별자치도 서귀포시 성산읍 서성일로 188-18</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="map-container">
+    <h3>하이 제주 호텔</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.2720818743705!2d126.25256445425855!3d33.39154308922733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350c6099895f00ff%3A0xde26409fcde216ad!2z7ZWY7J207KCc7KO87Zi47YWU!5e0!3m2!1sko!2skr!4v1749471481247!5m2!1sko!2skr" allowfullscreen loading="lazy"></iframe>
+    <h3>판포 도도하우스</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3332.3634339848118!2d126.20320699999996!3d33.36157659999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350c66ebde31a34d%3A0x55bf2f3e76776021!2z7YyQ7Y-s64-E64-E7ZWY7Jqw7Iqk!5e0!3m2!1sko!2skr!4v1749471589129!5m2!1sko!2skr" allowfullscreen loading="lazy"></iframe>
+    <h3>웨스티 하우스 펜션</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d259282.95802833015!2d126.14828182239229!3d33.27868734611062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350c5b5141e77b3d%3A0xd5e76231f4c07b9c!2z7Juo7Iqk7Yuw7ZWY7Jqw7Iqk!5e0!3m2!1sko!2skr!4v1749471259715!5m2!1sko!2skr" allowfullscreen loading="lazy"></iframe>
+    <h3>제주 블루앤씨</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7473.5917534050395!2d126.8120600146666!3d33.40208813284095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350d0fd0c7112b9b%3A0x40a3293ddd42b6f4!2z67iU66Oo7JWk7JSoIO2OnOyFmA!5e0!3m2!1sko!2skr!4v1749471466672!5m2!1sko!2skr" allowfullscreen loading="lazy"></iframe>
+  </section>
+
+  <footer>© 2025 Jeju-Dog 제주도그</footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const dogName = params.get('dogName') || '';
+    const dogAge  = params.get('dogAge') || '';
+    // 이전으로 버튼 링크 설정
+    document.getElementById('back-btn').href = `index.html?dogName=${encodeURIComponent(dogName)}&dogAge=${encodeURIComponent(dogAge)}`;
+    // 타이틀 변경
+    document.getElementById('page-title').innerText = `${dogAge}살 ${dogName}과 함께 머무는 숙소`;
+  </script>
+   <iframe
+    width="0" height="0"
+    src="https://www.youtube.com/embed/hSPcExVhquE?autoplay=1&loop=1&playlist=hSPcExVhquE&mute=0"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    style="display:none"
+  ></iframe>
+</body>
+</html>
+</body>
+</html>
