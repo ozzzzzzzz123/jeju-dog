@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>제주 관광 정보</title>
+  <style>
+    /* ─────────────────────────────────────────────────
+       기본 스타일
+    ───────────────────────────────────────────────── */
+    body {
+      background-color: #FFD580;
+      color: #5D3A00;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      position: relative;
+      background-color: #FE9F60;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    header h2 {
+      font-size: 1rem;
+      margin: 8px 0 0;
+      animation: blink 1s linear infinite;
+    }
+    @keyframes blink {
+      0%,50%,100% { opacity: 1; }
+      25%,75%     { opacity: 0; }
+    }
+    #back-btn {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      background: #5D3A00;
+      color: #FFD580;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    #back-btn:hover { opacity: 0.8; }
+
+    /* ─────────────────────────────────────────────────
+       제주 관광 참고 사이트
+    ───────────────────────────────────────────────── */
+    .ref-links {
+      text-align: center;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+    .ref-links .ref-label {
+      margin-right: 12px;
+    }
+    .ref-links a {
+      display: inline-block;
+      margin: 0 6px;
+      padding: 8px 16px;
+      background: #5D3A00;
+      color: #FFD580;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    .ref-links a:hover {
+      background: #4a2e00;
+    }
+    
+
+    /* ─────────────────────────────────────────────────
+       여행 펫티켓 안내
+    ───────────────────────────────────────────────── */
+    .petiquette {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      padding: 0 10px;
+      text-align: left;
+    }
+    .petiquette .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .petiquette .card h3 {
+      margin-top: 0;
+      color: #006400;
+      text-align: center;
+    }
+    .petiquette .card p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ─────────────────────────────────────────────────
+       제주 날씨 정보 (기상청 iframe)
+    ───────────────────────────────────────────────── */
+    .weather-container {
+      max-width: 900px;
+      margin: 0 auto 30px;
+      padding: 20px 10px;         /* 여백 추가 */
+      background-color: #fff;     /* 배경 흰색 적용 */
+      border-radius: 8px;         /* 모서리 둥글게 */
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .weather-container h3 {
+      margin-bottom: 12px;
+      color: #006400;
+      font-size: 1.2rem;
+    }
+    .weather-container iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    /* ─────────────────────────────────────────────────
+       추천 섹션 타이틀
+    ───────────────────────────────────────────────── */
+    .section-title {
+      max-width: 900px;
+      margin: 40px auto 20px;
+      padding: 0 10px;
+      font-size: 1.5rem;
+      color: #5D3A00;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* ─────────────────────────────────────────────────
+       관광지 카드 그리드
+    ───────────────────────────────────────────────── */
+    .grid.spots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 0 10px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 12px;
+    }
+    .card-content h3 {
+      margin: 0 0 8px;
+      color: #006400;
+      font-size: 1.2rem;
+    }
+    .card-content p {
+      margin: 4px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ─────────────────────────────────────────────────
+       반응형 처리 (필요 시)
+    ───────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .ref-links { margin: 15px 0; }
+      .petiquette, .weather-container, .section-title, .grid.spots {
+        padding: 0 8px;
+      }
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      header h2 { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="page-title">반려견과 함께 즐기는 제주</h1>
+    <h2>댕댕이와 떠나는 제주 여행 가이드</h2>
+    <a id="back-btn" href="#">← 이전으로</a>
+  </header>
+
+  <!-- 제주 관광 참고 사이트 -->
+  <div class="ref-links">
+    <span class="ref-label">제주 관광 참고 사이트:</span>
+    <a href="https://ijto.or.kr/korean/" target="_blank" rel="noopener">제주관광공사</a>
+    <a href="https://www.visitjeju.net/kr" target="_blank" rel="noopener">비짓제주</a>
+    <a href="https://www.jejuangeltour.com/bbs2/board.php?bo_table=regulations&wr_id=14"
+       target="_blank" rel="noopener">엔젤카 (반려견 동반 렌터카)</a>
+  </div>
+<!-- 네이버 검색창 (가운데+초록 테마) -->
+<div style="text-align: center; margin: 24px 0;">
+  <form class="search-form" action="https://search.naver.com/search.naver" method="get" target="_blank" style="display: inline-block; background: #1EC800; padding: 16px 28px; border-radius: 40px; box-shadow: 0 4px 16px rgba(30,200,0,0.08);">
+    <label style="font-size: 1.3rem; color: #fff; font-weight: bold; letter-spacing: 2px;">
+      NAVER &nbsp;
+      <input
+        type="text"
+        name="query"
+        required
+        placeholder="반려견 여행이 더 궁금하다면?"
+        style="padding: 10px 16px; border-radius: 24px; border: none; font-size: 1.1rem; width: 220px; margin-right: 10px;"
+      >
+    </label>
+    <input
+      type="submit"
+      value="검색"
+      style="background: #fff; color: #1EC800; border: none; border-radius: 20px; font-size: 1.1rem; font-weight: bold; padding: 10px 24px; cursor: pointer; transition: background 0.2s;"
+      onmouseover="this.style.background='#e3ffe3'"
+      onmouseout="this.style.background='#fff'"
+    >
+  </form>
+</div>
+
+  <!-- 여행 펫티켓 안내 -->
+  <section class="petiquette">
+    <div class="card">
+      <h3>여행 펫티켓 안내</h3>
+      <p>
+        1. 목줄 및 하네스 착용 필수<br>
+        2. 배변 봉투 지참 및 즉시 수거<br>
+        3. 지정된 반려견 출입 구역 이용<br>
+        4. 음식물 공유 금지 (전용 간식만)<br>
+      </p>
+    </div>
+  </section>
+
+  <!-- 제주 날씨 정보 (기상청) -->
+  <div class="weather-container">
+    <h3>제주 날씨 정보(제주기상청)</h3>
+    <iframe
+      src="https://www.kma.go.kr/jeju/html/main/index.jsp"
+      title="제주 날씨 정보">
+    </iframe>
+  </div>
+
+  <!-- 추천 섹션 타이틀 -->
+  <div class="section-title">반려견 동반 관광지 추천</div>
+
+    <!-- 반려견 동반 관광지 카드 나열 -->
+  <div class="grid spots">
+    <div class="card">
+      <img src="https://github.com/ozzzzzzzz123/juju-dog/blob/main/5.1.png?raw=true" alt="스누피가든">
+      <div class="card-content">
+        <h3>스누피가든</h3>
+        <p>매주 수요일 반려견 동반 입장 가능</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://github.com/ozzzzzzzz123/juju-dog/blob/main/5.2.png?raw=true" alt="카멜리아 힐">
+      <div class="card-content">
+        <h3>카멜리아 힐</h3>
+        <p>8kg 미만 반려견만 입장 가능</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://github.com/ozzzzzzzz123/juju-dog/blob/main/5.3.png?raw=true" alt="섭지코지">
+      <div class="card-content">
+        <h3>섭지코지</h3>
+        <p>아름다운 해안 절경의 대표 명소</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://github.com/ozzzzzzzz123/juju-dog/blob/main/5.4.png?raw=true" alt="협재해수욕장">
+      <div class="card-content">
+        <h3>협재해수욕장</h3>
+        <p>맑은 바다와 부드러운 백사장이 매력</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://github.com/ozzzzzzzz123/juju-dog/blob/main/5.5.png?raw=true" alt="천지연폭포">
+      <div class="card-content">
+        <h3>천지연폭포</h3>
+        <p>수려한 폭포와 산책로 조망</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://github.com/ozzzzzzzz123/juju-dog/blob/main/5.6.png?raw=true" alt="안돌오름 비밀의 숲">
+      <div class="card-content">
+        <h3>안돌오름 비밀의 숲</h3>
+        <p>고요한 숲속 산책로 제공</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 처음으로 버튼 -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const dogName = params.get('dogName') || '';
+    const dogAge  = params.get('dogAge')  || '';
+    document.getElementById('back-btn').href =
+      `index.html?dogName=${encodeURIComponent(dogName)}&dogAge=${encodeURIComponent(dogAge)}`;
+    document.getElementById('page-title').innerText =
+      `${dogAge}살 ${dogName}과 함께 즐기는 제주`;
+  </script>
+
+  <!-- 공통 배경음악 스크립트 -->
+  <script src="../common.js" defer></script>
+  <iframe
+    width="0" height="0"
+    src="https://www.youtube.com/embed/hSPcExVhquE?autoplay=1&loop=1&playlist=hSPcExVhquE&mute=0"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    style="display:none">
+  </iframe>
+</body>
+</html>
