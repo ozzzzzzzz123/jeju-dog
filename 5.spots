@@ -306,14 +306,5 @@
       `${dogAge}살 ${dogName}과 함께 즐기는 제주`;
   </script>
 
-  <!-- 공통 배경음악 스크립트 -->
-  <script src="../common.js" defer></script>
-  <iframe
-    width="0" height="0"
-    src="https://www.youtube.com/embed/hSPcExVhquE?autoplay=1&loop=1&playlist=hSPcExVhquE&mute=0"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    style="display:none">
-  </iframe>
 </body>
 </html>
