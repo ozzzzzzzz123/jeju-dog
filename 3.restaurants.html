@@ -5,38 +5,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>반려견 동반 식당</title>
+
+  <!-- 스타일 -->
   <style>
     body { background-color: #FFD580; color: #5D3A00; font-family: Arial, sans-serif; margin: 0; padding: 0; }
     header { background-color: #FE9F60; color: #5D3A00; text-align: center; padding: 30px 20px; position: relative; }
     header h1 { font-size: 2rem; margin: 0; }
     header h2 { font-size: 1rem; margin: 8px 0 0; font-weight: normal; }
-    /* 처음으로 버튼 (왼쪽) */
+
+    /* 이전으로 버튼 */
     #back-btn {
-      position: absolute;
-      top: 50%;
-      left: 20px;
-      transform: translateY(-50%);
-      padding: 6px 12px;
-      background: #5D3A00;
-      color: #FFD580;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 0.9rem;
+      position: absolute; top: 50%; left: 20px; transform: translateY(-50%);
+      padding: 6px 12px; background: #5D3A00; color: #FFD580;
+      text-decoration: none; border-radius: 4px; font-size: 0.9rem;
       animation: blink 2s linear infinite;
     }
     #back-btn:hover { opacity: 0.8; }
-    @keyframes blink {
-      0%, 50%, 100% { opacity: 1; }
-      25%, 75% { opacity: 0; }
-    }
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 900px; margin: 20px auto; padding: 0 10px; }
-    .card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    .card img { width: 100%; height: 180px; object-fit: cover; }
-    .card-content { padding: 12px; }
-    .card-content h3 { margin: 0 0 8px; color: #006400; font-size: 1.2rem; }
-    .card-content p { margin: 4px 0; font-size: 0.95rem; }
-    footer { text-align: center; padding: 10px; background: #FE9F60; color: #5D3A00; }
+    @keyframes blink { 0%,50%,100%{opacity:1;} 25%,75%{opacity:0;} }
+
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+            max-width: 900px; margin: 20px auto; padding: 0 10px; }
+    .card { background:#fff; border-radius:8px; overflow:hidden;
+            box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    .card img { width:100%; height:180px; object-fit:cover; }
+    .card-content { padding:12px; }
+    .card-content h3 { margin:0 0 8px; color:#006400; font-size:1.2rem; }
+    .card-content p { margin:4px 0; font-size:0.95rem; }
+
+    footer { text-align:center; padding:10px; background:#FE9F60; color:#5D3A00; }
   </style>
+
+  <!-- 공통 BGM 스크립트 -->
   <script src="common.js" defer></script>
 </head>
 <body>
@@ -46,13 +45,14 @@
     <a id="back-btn" href="#">← 이전으로</a>
   </header>
 
+  <!-- 식당 카드 6개 -->
   <div class="grid">
     <div class="card">
-      <img src="https://github.com/ozzzzzzzz123/juju-dog/blob/main/3.1.png?raw=true">
+      <img src="https://github.com/ozzzzzzzz123/juju-dog/blob/main/3.1.png?raw=true" alt="보리짚불구이 초풍">
       <div class="card-content">
         <h3>보리짚불구이 초풍</h3>
-        <p><strong>대표메뉴</strong>: 흑돼지 근고기500g (60,000원)</p>
-        <p><strong>운영시간</strong>: 매일 11:00 - 23:00</p>
+        <p><strong>대표메뉴</strong>: 흑돼지 근고기 500g (60,000원)</p>
+        <p><strong>운영시간</strong>: 매일 11:00 – 23:00</p>
         <p><strong>위치</strong>: 제주 서귀포시 중문로 86 1층</p>
       </div>
     </div>
@@ -61,7 +61,7 @@
       <div class="card-content">
         <h3>라피스제주</h3>
         <p><strong>대표메뉴</strong>: 트러플오일 크림뇨끼 (14,900원), 아보카도 김치필라프 (13,900원)</p>
-        <p><strong>운영시간</strong>: 매일 09:30 - 21:00 (수요일 휴무)</p>
+        <p><strong>운영시간</strong>: 매일 09:30 – 21:00 (수요일 휴무)</p>
         <p><strong>위치</strong>: 제주 서귀포시 홍중로 28-1</p>
       </div>
     </div>
@@ -70,16 +70,16 @@
       <div class="card-content">
         <h3>중문갈치노릇 서귀포중문점</h3>
         <p><strong>대표메뉴</strong>: 노릇 통갈치 구이 세트 2인 (89,000원)</p>
-        <p><strong>운영시간</strong>: 매일 09:00 - 21:00</p>
+        <p><strong>운영시간</strong>: 매일 09:00 – 21:00</p>
         <p><strong>위치</strong>: 제주 서귀포시 1100로49번길 28-19</p>
       </div>
     </div>
     <div class="card">
-      <img src="https://github.com/ozzzzzzzz123/juju-dog/blob/main/3.4.png?raw=true.jpg" alt="한림칼국수 표선점">
+      <img src="https://github.com/ozzzzzzzz123/juju-dog/blob/main/3.4.png?raw=true" alt="한림칼국수 표선점">
       <div class="card-content">
         <h3>한림칼국수 표선점</h3>
         <p><strong>대표메뉴</strong>: 보말매생이칼국수 (10,000원), 영양보말죽 (12,000원)</p>
-        <p><strong>운영시간</strong>: 매일 08:00 - 21:00 (격주 금요일 휴무)</p>
+        <p><strong>운영시간</strong>: 매일 08:00 – 21:00 (격주 금요일 휴무)</p>
         <p><strong>위치</strong>: 제주 서귀포시 표선면 표선관정로117번길 1</p>
       </div>
     </div>
@@ -88,7 +88,7 @@
       <div class="card-content">
         <h3>무거버거</h3>
         <p><strong>대표메뉴</strong>: 당근버거 (11,500원), 마늘버거 (11,500원)</p>
-        <p><strong>운영시간</strong>: 매일 10:00 - 20:00</p>
+        <p><strong>운영시간</strong>: 매일 10:00 – 20:00</p>
         <p><strong>위치</strong>: 제주 제주시 조천읍 조함해안로 356</p>
       </div>
     </div>
@@ -97,7 +97,7 @@
       <div class="card-content">
         <h3>제주곶 서귀포 해물라면</h3>
         <p><strong>대표메뉴</strong>: 문어라면 (15,900원), 조개라면 (12,500원)</p>
-        <p><strong>운영시간</strong>: 매일 10:00 - 18:00</p>
+        <p><strong>운영시간</strong>: 매일 10:00 – 18:00</p>
         <p><strong>위치</strong>: 제주 서귀포시 칠십리로214번길 36</p>
       </div>
     </div>
@@ -105,18 +105,25 @@
 
   <footer>© 2025 Jeju-Dog 제주도그</footer>
 
+  <!-- URL 파라미터로 이름/나이를 받아 제목·이전 버튼 설정 -->
   <script>
-    const params = new URLSearchParams(window.location.search);
+    const params  = new URLSearchParams(location.search);
     const dogName = params.get('dogName') || '';
-    const dogAge  = params.get('dogAge') || '';
-    // 이전으로 버튼 링크 설정
-    document.getElementById('back-btn').href = `index.html?dogName=${encodeURIComponent(dogName)}&dogAge=${encodeURIComponent(dogAge)}`;
-    // 타이틀 변경
-    document.getElementById('back-btn').href = `index.html?dogName=${encodeURIComponent(dogName)}&dogAge=${encodeURIComponent(dogAge)}`;
-    document.getElementById('page-title').innerText = `${dogAge}살 ${dogName}과 함께 먹을 수 있는 식당`;
-<iframe src="media/bgm.html"
-        allow="autoplay"
-        style="width:0;height:0;border:0;display:none;"
-        title="BGM"></iframe>
+    const dogAge  = params.get('dogAge')  || '';
+
+    const backBtn = document.getElementById('back-btn');
+    backBtn.href  = `index.html?dogName=${encodeURIComponent(dogName)}&dogAge=${encodeURIComponent(dogAge)}`;
+
+    const title = dogName
+      ? `${dogAge ? dogAge + '살 ' : ''}${dogName}과 함께 먹을 수 있는 식당`
+      : '반려견 동반 식당';
+    document.getElementById('page-title').innerText = title;
+  </script>
+
+  <!-- 배경음악을 iframe으로 유지(필요 시 삭제 가능) -->
+  <iframe src="media/bgm.html"
+          allow="autoplay"
+          style="width:0;height:0;border:0;display:none;"
+          title="BGM"></iframe>
 </body>
 </html>
