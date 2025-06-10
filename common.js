@@ -1,6 +1,6 @@
 /* common.js */
 document.addEventListener('DOMContentLoaded', () => {
-  const BGM_SRC = 'https://github.com/ozzzzzzzz123/jeju-dog/blob/main/back.mp3';      // 음악 파일 경로
+  const BGM_SRC = ''https://raw.githubusercontent.com/ozzzzzzzz123/jeju-dog/main/back.mp3';';      // 음악 파일 경로
   const KEY     = 'bgmPos';        // localStorage 키
 
   // 1) 오디오 엘리먼트 생성
