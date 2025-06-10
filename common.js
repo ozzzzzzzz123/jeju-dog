@@ -1,6 +1,6 @@
 /* common.js */
 document.addEventListener('DOMContentLoaded', () => {
-  const BGM_SRC = 'back.mp3';   // 또는 'media/back.mp3'
+  const BGM_SRC = 'back.mp3';
   const KEY     = 'bgmPos';
 
   const audio = new Audio(BGM_SRC);
